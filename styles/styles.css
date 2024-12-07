@@ -50,7 +50,7 @@ body::-webkit-scrollbar-thumb {
     gap: 1em;
 }
 
-#nav-router-items > a {
+#nav-router-items>a {
     display: flex;
     align-items: center;
 }
@@ -110,7 +110,7 @@ body::-webkit-scrollbar-thumb {
     display: none;
 }
 
-#container-nav-elements > a{
+#container-nav-elements>a {
     display: flex;
     align-items: center;
 }
@@ -143,11 +143,19 @@ body::-webkit-scrollbar-thumb {
     }
 
 }
+
 /* END Estilos base para los items de navegación */
 
 /* Estilos para el footer */
+#footer-container>.footer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 0!important;
+}
+
 .footer {
-    padding: 0em 1em 1em 1em !important;
+    padding: 1em !important;
 }
 
 .footer p {
