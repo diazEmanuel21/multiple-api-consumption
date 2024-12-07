@@ -1,0 +1,64 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <img src="../assets/logo.png" alt="Logo" width="112" height="28">
+    </div>
+
+    <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-start">
+            <div id="nav-router-items" class="container-items">
+                <a class="bd-nav-item bd-theme-home" data-view="home" onclick="changeViewsByDataView({view: 'home'})">
+                    <span class="icon">
+                        <i><img src="../assets/icons/pokemon_home.png" alt="pokemon"></i>
+                    </span>
+                    <span>Home</span>
+                </a>
+                <a class="bd-nav-item bd-theme-pokemon" data-view="pokemon"
+                    onclick="changeViewsByDataView({view: 'pokemon'})">
+                    <span class="icon">
+                        <i><img src="../assets/icons/pokemon.png" alt="pokemon"></i>
+                    </span>
+                    <span>Pokemon</span>
+                </a>
+                <a class="bd-nav-item bd-theme-anime" data-view="anime"
+                    onclick="changeViewsByDataView({view: 'anime'})">
+                    <span class="icon">
+                        <i><img src="../assets/icons/avatar.png" alt="pokemon"></i>
+                    </span>
+                    <span>Anime</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="field has-addons">
+                    <p class="control">
+                        <input class="input" type="text" placeholder="Find an item">
+                    </p>
+                    <p class="control">
+                        <button class="button is-primary">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <p>Search</p>
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a id="burger-button" class="navbar-burger" role="button" aria-label="menu" aria-expanded="false" onclick="showBurgerMenu()">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </a>
+
+</nav>
+
+<aside id="aside-menu" class="menu hide-element">
+    <ul class="menu-list">
+        <li>
+            <ul id="container-nav-elements" class=""></ul>
+        </li>
+    </ul>
+</aside>
