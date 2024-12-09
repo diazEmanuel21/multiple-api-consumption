@@ -4,69 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aplicación interactiva basada en una API con módulos dinámicos.">
+    <meta name="author" content="Tu Nombre">
+    <meta name="keywords" content="API, Aplicación, Módulos, JavaScript, HTML, CSS">
     <title>API-APP</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-    <!-- CSS -->
+
+    <!-- CSS Global -->
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/drawer.css">
     <link rel="stylesheet" href="./styles/progress.css">
-    <!-- Bulma -->
+
+    <!-- Bulma CSS Framework -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
-    <!-- Animate CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/6d80509662.js" crossorigin="anonymous" defer></script>
 </head>
 
 <body>
-    <!-- Progress -->
-    <!-- Progress -->
-    <section id="loading-screen">
-        <div id="loader"></div>
+    <!-- Pantalla de Carga -->
+    <section id="loading-screen" aria-hidden="true" role="status">
+        <div id="loader" aria-label="Cargando contenido..."></div>
     </section>
 
-    <!-- Layout -->
+    <!-- Contenedor Principal -->
     <div id="layout">
         <!-- Nav -->
-        <div id="nav-container"></div>
-        <!-- Children viws -->
-        <div id="root" onclick="handleOutsideClick()"></div>
-        <!-- footer -->
-        <div id="footer-container"></div>
+        <header id="nav-container" role="banner"></header>
+        <!-- Contenido Dinámico -->
+        <main id="root" role="main" onclick="handleOutsideClick()"></main>
+        <!-- Footer -->
+        <footer id="footer-container" role="contentinfo"></footer>
     </div>
 
-    <!-- Jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- Fontaweasome -->
-    <script src="https://kit.fontawesome.com/6d80509662.js" crossorigin="anonymous"></script>
+    <!-- Bibliotecas Externas -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
 
-    <!-- Progress -->
-    <script src="./JS/progress.js"></script>
-    <!-- Router -->
-    <script src="router.js"></script>
-    <!-- Menu -->
-    <script src="./JS/menu.js"></script>
-    <!-- Drawer -->
-    <!-- Retrazo para que cargue el DOM  -->
-    <script>
-        const loadScript = (src) => {
-            return new Promise((resolve, reject) => {
-                const script = document.createElement('script');
-                script.src = src;
-                script.type = 'text/javascript';
-                script.onload = () => resolve(`Script ${src} cargado con éxito`);
-                script.onerror = () => reject(`Error al cargar el script ${src}`);
-                document.body.appendChild(script);
-            });
-        };
-
-        // Llama a la función con un retraso
-        setTimeout(() => {
-            loadScript('./JS/drawer.js')
-                .then(console.log)
-                .catch(console.error);
-        }, 1000);
-    </script>
+    <!-- Scripts Internos -->
+    <script src="./JS/progress.js" defer></script>
+    <script src="router.js" defer></script>
+    <script src="./JS/menu.js" defer></script>
+    <script src="./JS/drawer.js" defer></script>
 </body>
 
 </html>

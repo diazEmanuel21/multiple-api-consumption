@@ -1,13 +1,13 @@
-<button class="open-drawer button is-dark" id="open-drawer-btn">
+<button class="open-drawer button is-dark" id="open-drawer-btn" aria-controls="drawer" aria-expanded="false">
   ©
 </button>
 
-<div class="container-drawer">
-  <div class="drawer-overlay hide-element" id="drawer-overlay"></div>
-  <div class="drawer" id="drawer">
-    <div class="footer drawer-content">
-      <button class="close-drawer" id="close-drawer-btn">&times;</button>
 
+<div class="container-drawer">
+  <div class="drawer-overlay hide-element" id="drawer-overlay" tabindex="-1"></div>
+  <div class="drawer" id="drawer" role="dialog" aria-hidden="true">
+    <div class="footer drawer-content" id="drawer-content">
+      <button class="close-drawer" id="close-drawer-btn" aria-label="Cerrar menú">&times;</button>
       <div class="content has-text-centered">
         <!-- Créditos para uso de iconos -->
         <p>

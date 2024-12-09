@@ -4,6 +4,10 @@
     bottom: 6px;
 }
 
+#aside-menu {
+    display: flex;
+}
+
 /* Drawer Overlay */
 .drawer-overlay {
     position: fixed;

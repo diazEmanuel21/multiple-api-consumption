@@ -1,29 +1,37 @@
-const drawer = $('#drawer');
-const drawerOverlay = $('#drawer-overlay');
+$(document).on('click', '#open-drawer-btn', () => {
+  const drawer = $('#drawer');
+  const drawerOverlay = $('#drawer-overlay');
 
-// Abrir Drawer
-const openDrawer = () => {
   if (drawer.hasClass('show')) return;
   drawer.addClass('show');
-  drawerOverlay.addClass('show');
-  drawerOverlay.removeClass('hide-element');
-};
+  drawerOverlay.addClass('show').removeClass('hide-element');
+});
 
-// Cerrar Drawer
-const closeDrawer = () => {
+$(document).on('click', '#close-drawer-btn', () => {
+  const drawer = $('#drawer');
+  const drawerOverlay = $('#drawer-overlay');
+
   drawer.removeClass('show');
   drawerOverlay.removeClass('show');
   setTimeout(() => drawerOverlay.addClass('hide-element'), 300);
-};
+});
 
-// Eventos
-$('#open-drawer-btn').on('click', openDrawer);
-$('#close-drawer-btn').on('click', closeDrawer);
-drawerOverlay.on('click', closeDrawer);
+$(document).on('click', '#drawer-overlay', () => {
+  const drawer = $('#drawer');
+  const drawerOverlay = $('#drawer-overlay');
 
-// Cerrar con tecla ESC
+  drawer.removeClass('show');
+  drawerOverlay.removeClass('show');
+  setTimeout(() => drawerOverlay.addClass('hide-element'), 300);
+});
+
 $(document).on('keydown', (e) => {
   if (e.key === 'Escape') {
-    closeDrawer();
+      const drawer = $('#drawer');
+      const drawerOverlay = $('#drawer-overlay');
+
+      drawer.removeClass('show');
+      drawerOverlay.removeClass('show');
+      setTimeout(() => drawerOverlay.addClass('hide-element'), 300);
   }
 });
