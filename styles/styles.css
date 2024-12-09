@@ -115,6 +115,10 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
 }
 
+.menu-burger-container {
+    background-color: #14161A;
+}
+
 /* Responsive nav */
 @media (max-width: 820px) {
 

@@ -11,6 +11,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/drawer.css">
+    <link rel="stylesheet" href="./styles/progress.css">
     <!-- Bulma -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <!-- Animate CSS -->
@@ -18,12 +19,19 @@
 </head>
 
 <body>
+    <!-- Progress -->
+    <!-- Progress -->
+    <section id="loading-screen">
+        <div id="loader"></div>
+    </section>
+
+    <!-- Layout -->
     <div id="layout">
-        <!-- Aquí se incluirá la navegación -->
+        <!-- Nav -->
         <div id="nav-container"></div>
-        <!-- Contenedor dinámico -->
+        <!-- Children viws -->
         <div id="root" onclick="handleOutsideClick()"></div>
-        <!-- Aquí se incluirá el footer -->
+        <!-- footer -->
         <div id="footer-container"></div>
     </div>
 
@@ -32,12 +40,13 @@
     <!-- Fontaweasome -->
     <script src="https://kit.fontawesome.com/6d80509662.js" crossorigin="anonymous"></script>
 
+    <!-- Progress -->
+    <script src="./JS/progress.js"></script>
     <!-- Router -->
     <script src="router.js"></script>
-    <!-- JS -->
-    <script src="./JS/main.js"></script>
+    <!-- Menu -->
+    <script src="./JS/menu.js"></script>
     <!-- Drawer -->
-
     <!-- Retrazo para que cargue el DOM  -->
     <script>
         const loadScript = (src) => {
