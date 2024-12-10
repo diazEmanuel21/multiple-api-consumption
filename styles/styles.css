@@ -14,12 +14,17 @@ body::-webkit-scrollbar-thumb {
 }
 /* End Scrollbar */
 
-/* Generic sections */
+/* Header */
+#nav-container {
+    background-color: #14161A;
+    z-index: 1031;
+}
+
 #root {
     display: flex;
     flex: 1;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    min-height: 100vh;
+    margin-top: 6em;
+    min-height: 85vh;
 }
+/* Generic sections */

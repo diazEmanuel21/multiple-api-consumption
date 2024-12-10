@@ -62,7 +62,7 @@ const changeViewsByDataView = async ({ view = 'home' }) => {
 loadHTML({ containerId: "nav-container", filePath: "layout/nav.html" });
 
 // Inicializa en el home
-changeViewsByDataView({ view: 'home' });
+changeViewsByDataView({ view: 'pokemon' });
 
 // Carga footer
 loadHTML({ containerId: "footer-container", filePath: "layout/footer.html" });

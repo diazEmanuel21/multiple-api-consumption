@@ -97,7 +97,13 @@
 }
 
 .menu-burger-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    padding: 1em;
+    flex-direction: column;
     background-color: #14161A;
+    height: 100%;
 }
 
 /* Responsive nav */
@@ -127,4 +133,72 @@
         width: 50px;
     }
 
+}
+
+/* Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+    transition: opacity 0.3s ease;
+}
+
+.menu-overlay.show {
+    display: block;
+    opacity: 1;
+}
+
+.menu-overlay.hide-element {
+    opacity: 0;
+}
+
+/* Menú como drawer */
+#aside-menu {
+    position: fixed;
+    top: 0;
+    right: 0; /* Inicialmente está fuera de la vista */
+    height: 100vh;
+    width: 300px;
+    background-color: #14161A;
+    z-index: 1000;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    transform: translateX(100%); /* Fuera de la vista */
+    transition: transform 0.3s ease-in-out;
+}
+
+#aside-menu.show {
+    transform: translateX(0); /* Desliza hacia adentro */
+}
+
+.animate__slideInRight {
+    animation: slideInRight 0.3s ease forwards;
+}
+
+.animate__slideOutRight {
+    animation: slideOutRight 0.3s ease forwards;
+}
+
+/* Animaciones personalizadas */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
 }

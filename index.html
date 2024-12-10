@@ -21,11 +21,11 @@
     <!-- Bulma CSS Framework -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
 
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/6d80509662.js" crossorigin="anonymous" defer></script>
+
+    <!-- Select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -34,18 +34,25 @@
         <div id="loader" aria-label="Cargando contenido..."></div>
     </section>
 
+    <button class="open-drawer button is-dark" id="open-drawer-btn" aria-controls="drawer" aria-expanded="false">
+        ©
+    </button>
+
     <!-- Contenedor Principal -->
     <div id="layout">
         <!-- Nav -->
         <header id="nav-container" role="banner"></header>
         <!-- Contenido Dinámico -->
-        <main id="root" role="main" onclick="handleOutsideClick()"></main>
+        <main id="root" class="container" role="main"></main>
         <!-- Footer -->
         <footer id="footer-container" role="contentinfo"></footer>
     </div>
 
     <!-- Bibliotecas Externas -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+
+    <!-- Select2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" defer></script>
 
     <!-- Scripts Internos -->
     <script src="./JS/progress.js" defer></script>
