@@ -1,4 +1,4 @@
-.card-grid {
+.card-home-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
@@ -8,7 +8,7 @@
     margin: 0 auto;
 }
 
-.card {
+.card-home {
     padding: 1em;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -17,21 +17,21 @@
     max-height: 200px;
 }
 
-.card > .buttons {
+.card-home > .buttons {
     justify-content: center;
 }
 
-.card:hover {
+.card-home:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.card h2 {
+.card-home h2 {
     font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
-.card p {
+.card-home p {
     margin-bottom: 20px;
     font-size: 1rem;
 }

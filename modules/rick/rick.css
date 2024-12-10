@@ -2,6 +2,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1;
+    flex-direction: column;
+}
+
+#characters-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
 }
 
 .characters-grid {
