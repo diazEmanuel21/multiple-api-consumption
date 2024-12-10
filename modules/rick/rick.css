@@ -1,10 +1,10 @@
-#anime-section {
+#rick-section {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.anime-grid {
+.characters-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
@@ -13,7 +13,8 @@
     max-width: 1200px;
 }
 
-.anime-card {
+/* Character Card */
+.character-card {
     background: white;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -22,30 +23,30 @@
     transition: transform 0.2s ease-in-out;
 }
 
-.anime-card:hover {
+.character-card:hover {
     transform: translateY(-5px);
 }
 
-.anime-card img {
+.character-card img {
     width: 100%;
     height: auto;
     object-fit: cover;
 }
 
-.anime-card .info {
+.character-card .info {
     padding: 10px;
     text-align: center;
 }
 
-.anime-card .info h2 {
-    font-size: 1rem;
-    color: #222;
+.character-card .info h2 {
+    font-size: 1.2rem;
+    color: #202329;
 }
 
-.anime-card .info p {
+.character-card .info p {
     margin-top: 5px;
     font-size: 0.9rem;
-    color: #555;
+    color: #606060;
 }
 
 #pagination {

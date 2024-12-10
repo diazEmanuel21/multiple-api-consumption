@@ -177,12 +177,12 @@
 
         // Botón de página anterior
         if (offset > 0) {
-            $pagination.append(`<button class="button is-info is-dark" id="prev-page">Anterior</button>`);
+            $pagination.append(`<button class="button is-danger is-dark" id="prev-page">Anterior</button>`);
         }
 
         // Botón de página siguiente
         if (offset + limit < total) {
-            $pagination.append(`<button class="button is-info is-dark" id="next-page">Siguiente</button>`);
+            $pagination.append(`<button class="button is-danger is-dark" id="next-page">Siguiente</button>`);
         }
 
         // Manejar eventos de paginación
@@ -199,6 +199,6 @@
 
     // Inicialización
     $(document).ready(function () {
-        fetchAndRenderPokemon(10, 0); // Renderizar la primera página
+        fetchAndRenderPokemon(10, 0);
     });
 })();

@@ -3,6 +3,6 @@ $(document).ready(function() {
     
     setTimeout(function() {
       $('#loading-screen').hide();
-    }, 2000); // 2 segundos
+    }, 5000); // 5 segundos
   });
   
