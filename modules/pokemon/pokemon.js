@@ -1,5 +1,6 @@
 (() => {
     const BASE_URL = "https://pokeapi.co/api/v2/pokemon";
+    const IMG_URL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/ID_IMAGE_CUSTOM.svg"
     let currentOffset = 0; // Para paginación dinámica
 
     // Colores de los tipos
@@ -32,6 +33,7 @@
      */
     const updateUI = (pokemon) => {
         const mainColor = typeColors[pokemon.types[0].type.name];
+        const idPokemon = pokemon.id.toString().padStart(3, "0");
         // Crear burbujas de tipo
         const typesHTML = pokemon.types.map((type) => createTypeElement(type.type.name)).join("");
 
@@ -39,11 +41,11 @@
             <div id="pokedex" class="card pokemon-card" style="background-color: ${mainColor};">
                 <div id="top">
                     <div id="top-bar">
-                        <h6>${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h6>
-                        <span id="number">#${pokemon.id.toString().padStart(3, "0")}</span>
+                        <h6>${pokemon.name}</h6>
+                        <span id="number">#${idPokemon}</span>
                     </div>
                     <div id="poke-image-placeholder">
-                        <img src="${pokemon.sprites.front_default}" id="pokemon-image" alt="${pokemon.name}">
+                        <img src="${IMG_URL.replace('ID_IMAGE_CUSTOM', pokemon.id)}" id="pokemon-image" alt="${pokemon.name}">
                     </div>
                 </div>
                 <div id="data">

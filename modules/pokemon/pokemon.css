@@ -38,20 +38,6 @@
     color: white;
 }
 
-#search {
-    color: white;
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    width: 60%;
-    text-transform: capitalize;
-}
-
-#search:focus {
-    outline: none;
-}
-
 #poke-image-placeholder {
     display: flex;
     justify-content: center;
@@ -61,11 +47,6 @@
     width: 200px;
     height: 200px;
     transform: translateY(3.5rem);
-}
-
-#baseData {
-    text-align: left;
-    font-weight: bold;
 }
 
 #data {
@@ -93,30 +74,8 @@
     text-transform: capitalize;
 }
 
-#data h4 {
-    text-align: center;
-}
-
-.description-pokemon {
-    margin-top: 20px;
-    padding: 15px;
-    color: #333;
-    text-align: left;
-}
-
-/* Estilo para los títulos */
-.description-pokemon strong {
-    font-weight: bold;
-    color: #555;
-    margin-right: 5px;
-}
-
-/* Espaciado entre párrafos */
-.description-pokemon p {
-    margin: 8px 0;
-}
-
 /* End card pokemon */
+
 
 #pagination {
     position: fixed;
