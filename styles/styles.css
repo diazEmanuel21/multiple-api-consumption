@@ -25,6 +25,7 @@ body::-webkit-scrollbar-thumb {
     flex: 1;
     flex-direction: column;
     margin-top: 6em;
+    margin-bottom: 4em;
     min-height: 85vh;
 }
 /* Generic sections */

@@ -25,6 +25,32 @@
         dark: "#EE99AC",
     };
 
+    const statNameMapping = {
+        hp: "HP",
+        attack: "ATK",
+        defense: "DEF",
+        "special-attack": "SATK",
+        "special-defense": "SDEF",
+        speed: "SPD",
+    };
+
+
+    const createStatElement = ({ base_stat, stat }, mainColor) => {
+        const displayName = statNameMapping[stat.name] || stat.name.toUpperCase();
+        return `
+            <div class="stats-wrap" data-stat="${stat.name}">
+                <p class="body3-fonts stats" style="color: ${mainColor};">${displayName}</p>
+                <p class="body3-fonts">${base_stat}</p>
+                <progress value="${base_stat}" max="100" class="progress-bar" style="--progress-color: ${mainColor};"></progress>
+            </div>
+        `;
+    };
+
+    const createStatsHTML = (stats, mainColor) => {
+        return stats.map(stat => createStatElement(stat, mainColor)).join("");
+    };
+
+    const createAbilityHTML = (abilities) => abilities.map(({ ability }) => `<p class="body3-fonts abilities-pokemon">${ability.name},</p>`).join("");
 
     /**
      * Función para actualizar la interfaz de usuario con los datos del Pokémon.
@@ -34,8 +60,9 @@
     const updateUI = (pokemon) => {
         const mainColor = typeColors[pokemon.types[0].type.name];
         const idPokemon = pokemon.id.toString().padStart(3, "0");
-        // Crear burbujas de tipo
-        const typesHTML = pokemon.types.map((type) => createTypeElement(type.type.name)).join("");
+        const typesHTML = pokemon.types
+            .map((type) => createTypeElement(type.type.name))
+            .join("");
 
         return `
             <div id="pokedex" class="card pokemon-card" style="background-color: ${mainColor};">
@@ -45,16 +72,39 @@
                         <span id="number">#${idPokemon}</span>
                     </div>
                     <div id="poke-image-placeholder">
-                        <img src="${IMG_URL.replace('ID_IMAGE_CUSTOM', pokemon.id)}" id="pokemon-image" alt="${pokemon.name}">
+                        <img src="${IMG_URL.replace(
+            "ID_IMAGE_CUSTOM",
+            pokemon.id
+        )}" id="pokemon-image" alt="${pokemon.name}">
                     </div>
                 </div>
-                <div id="data">
-                    <div id="types">${typesHTML}</div>
-                    <div class="description-pokemon">
-                        <h4 id="base-data" style="color: ${mainColor};">About</h4>
-                        <p><strong>Altura:</strong> ${pokemon.height / 10} m</p>
-                        <p><strong>Peso:</strong> ${pokemon.weight / 10} kg</p>
-                        <p><strong>Habilidades:</strong> ${pokemon.abilities.map((a) => a.ability.name).join(", ")}</p>
+                <div class="detail-card-detail-wrapper">
+                    <div id="types" class="power-wrapper">${typesHTML}</div>
+                    <div class="pokemon-detail-wrapper">
+                        <div class="pokemon-detail-wrap">
+                            <div class="pokemon-detail">
+                                <i class="fa-solid fa-weight-hanging"></i>
+                                <p class="body3-fonts weight">${pokemon.weight / 10} kg</p>
+                            </div>
+                            <p class="caption-fonts">Weight</p>
+                        </div>
+                        <div class="pokemon-detail-wrap">
+                            <div class="pokemon-detail">
+                                <i class="fa-solid fa-ruler-vertical"></i>
+                                <p class="body3-fonts height">${pokemon.height / 10} m</p>
+                            </div>
+                            <p class="caption-fonts">Height</p>
+                        </div>
+                        <div class="pokemon-detail-wrap">
+                            <div class="pokemon-detail move">
+                                ${createAbilityHTML(pokemon.abilities)}
+                            </div>
+                            <p class="caption-fonts">Move</p>
+                        </div>
+                    </div>
+                    <p class="body3-fonts pokemon-description"></p>
+                    <div class="stats-wrapper">
+                        ${createStatsHTML(pokemon.stats, mainColor)}
                     </div>
                 </div>
             </div>
