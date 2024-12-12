@@ -14,15 +14,6 @@
     gap: 1em;
 }
 
-.characters-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    width: 100%;
-    max-width: 1200px;
-}
-
 /* Character Card */
 .character-card {
     background: white;

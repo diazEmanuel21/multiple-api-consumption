@@ -1,11 +1,11 @@
 .card-home-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    gap: 1em;
+    padding: 1em;
+    flex-direction: column;
 }
 
 .card-home {
@@ -15,9 +15,10 @@
     cursor: pointer;
     height: 200px;
     max-height: 200px;
+    max-width: 300px;
 }
 
-.card-home > .buttons {
+.card-home>.buttons {
     justify-content: center;
 }
 
