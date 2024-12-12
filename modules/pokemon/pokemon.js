@@ -68,7 +68,7 @@
             <div id="pokedex" class="card pokemon-card" style="background-color: ${mainColor};">
                 <div id="top">
                     <div id="top-bar">
-                        <h6>${pokemon.name}</h6>
+                        <h6 class="pokemon-name">${pokemon.name}</h6>
                         <span id="number">#${idPokemon}</span>
                     </div>
                     <div id="poke-image-placeholder">
@@ -145,6 +145,7 @@
                     });
                 });
 
+                renderSearch(); //Renderizar el search
                 renderPagination(response.count, limit, offset); // Renderizar paginación dinámica
             },
             error: function () {
@@ -163,6 +164,54 @@
             url: url,
             method: "GET",
         });
+    }
+
+    /**
+     * Función para buscar.
+     */
+    const filterCards = () => {
+        const $containerCards = $("#pokemon-container");
+        const query = $("#search-input").val().toLowerCase();
+
+        // Filtrar las tarjetas que coincidan con el texto ingresado
+        $containerCards.children(".card").each(function () {
+            const $card = $(this);
+            const name = $card.find(".pokemon-name").text().toLowerCase();
+
+            $card.toggle(name.includes(query)); // Mostrar u ocultar las tarjetas
+        });
+    };
+
+    /**
+     * Función para crear y manejar el buscador dinámico.
+     */
+    function renderSearch() {
+        const searchContainer = $("#search-container");
+        const currentModule = "pokemon";
+        const childrenSearch = searchContainer.children().length;
+
+        if (childrenSearch > 0) return;
+
+        // Crear el HTML del buscador dinámicamente
+        searchContainer.append(`
+            <div class="navbar-item">
+                <div class="field has-addons">
+                    <p class="control">
+                        <input id="search-input" class="input" type="search" placeholder="Find an ${currentModule}">
+                    </p>
+                    <p class="control">
+                        <button id="search-button" class="button is-primary">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <span>Search</span>
+                        </button>
+                    </p>
+                </div>
+            </div>
+        `);
+
+        // Asignar el evento al input y al botón
+        $("#search-input").on("input", filterCards);
+        $("#search-button").on("click", filterCards);
     }
 
     /**

@@ -27,13 +27,20 @@
 #navbarMenu.navbar-menu>.navbar-start>.container-items {
     display: flex;
     flex: 1;
-    justify-content: center;
+    justify-content: start;
     gap: 1em;
 }
 
 #nav-router-items>a {
     display: flex;
     align-items: center;
+}
+
+#search-container {
+    position: fixed;
+    top: 18px;
+    z-index: 1031;
+    right: 0;
 }
 
 .navbar-brand {
@@ -74,9 +81,11 @@
 .bd-theme-pokemon:hover {
     background-color: hsla(0, 61%, 90%, 0.2);
 }
+
 .bd-theme-rick:hover {
     background-color: hsla(181, 100%, 50%, 0.2);
 }
+
 .bd-theme-anime:hover {
     background-color: hsla(64, 61%, 90%, 0.2);
 }
@@ -110,7 +119,7 @@
 }
 
 /* Responsive nav */
-@media (max-width: 1025px) {
+@media (max-width: 1150px) {
 
     #nav-container>.navbar {
         justify-content: space-between;
@@ -126,6 +135,10 @@
 
     .button.is-primary>p {
         display: none;
+    }
+
+    #search-container {
+        right: 55px;
     }
 }
 
@@ -164,19 +177,22 @@
 #aside-menu {
     position: fixed;
     top: 0;
-    right: 0; /* Inicialmente está fuera de la vista */
+    right: 0;
+    /* Inicialmente está fuera de la vista */
     height: 100vh;
     width: 300px;
     background-color: #14161A;
     z-index: 1000;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
     overflow-y: auto;
-    transform: translateX(100%); /* Fuera de la vista */
+    transform: translateX(100%);
+    /* Fuera de la vista */
     transition: transform 0.3s ease-in-out;
 }
 
 #aside-menu.show {
-    transform: translateX(0); /* Desliza hacia adentro */
+    transform: translateX(0);
+    /* Desliza hacia adentro */
 }
 
 .animate__slideInRight {
@@ -192,6 +208,7 @@
     from {
         transform: translateX(100%);
     }
+
     to {
         transform: translateX(0);
     }
@@ -201,6 +218,7 @@
     from {
         transform: translateX(0);
     }
+
     to {
         transform: translateX(100%);
     }

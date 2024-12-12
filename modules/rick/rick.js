@@ -12,6 +12,7 @@
             method: "GET",
             success: (response) => {
                 renderCharacters(response.results);
+                renderSearch(); //Renderizar el search
                 renderPagination(response.info.count, limit, offset);
             },
             error: (error) => {
@@ -20,15 +21,63 @@
         });
     };
 
+    /**
+        * Función para buscar.
+    */
+    const filterCards = () => {
+        const $containerCards = $("#characters-container");
+        const query = $("#search-input").val().toLowerCase();
+
+        // Filtrar las tarjetas que coincidan con el texto ingresado
+        $containerCards.children(".card").each(function () {
+            const $card = $(this);
+            const name = $card.find(".character-name").text().toLowerCase();
+
+            $card.toggle(name.includes(query)); // Mostrar u ocultar las tarjetas
+        });
+    };
+
+    /**
+     * Función para crear y manejar el buscador dinámico.
+     */
+    function renderSearch() {
+        const searchContainer = $("#search-container");
+        const currentModule = "character";
+        const childrenSearch = searchContainer.children().length;
+
+        if (childrenSearch > 0) return;
+
+        // Crear el HTML del buscador dinámicamente
+        searchContainer.append(`
+                <div class="navbar-item">
+                    <div class="field has-addons">
+                        <p class="control">
+                            <input id="search-input" class="input" type="search" placeholder="Find an ${currentModule}">
+                        </p>
+                        <p class="control">
+                            <button id="search-button" class="button is-primary">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <span>Search</span>
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            `);
+
+        // Asignar el evento al input y al botón
+        $("#search-input").on("input", filterCards);
+        $("#search-button").on("click", filterCards);
+    }
+
     // Function to render characters
     const renderCharacters = (characters) => {
         charactersContainer.empty();
         characters.forEach((character) => {
             const characterCard = `
-                <div class="character-card">
+                <div class="card character-card">
                     <img src="${character.image}" alt="${character.name}">
                     <div class="info">
-                        <h2>${character.name}</h2>
+                        <h2 class="character-name">${character.name}</h2>
                         <p>Status: ${character.status}</p>
                         <p>Species: ${character.species}</p>
                     </div>
