@@ -3,5 +3,5 @@ $(document).ready(function () {
 
   setTimeout(function () {
     $('#loading-screen').hide();
-  }, 1000); // 5 segundos
+  }, 3000); // 3 segundos
 });

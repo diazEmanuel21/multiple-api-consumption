@@ -145,11 +145,14 @@
                     });
                 });
 
+                $('#loading-screen').hide();
+        
                 renderSearch(); //Renderizar el search
                 renderPagination(response.count, limit, offset); // Renderizar paginación dinámica
             },
-            error: function () {
-                alert("Hubo un error al cargar los Pokémon. Por favor, inténtalo nuevamente.");
+            error: function (error) {
+                alert(`Hubo un error al cargar los Pokémon. Por favor, inténtalo nuevamente, ${error}`);
+
             },
         });
     }
@@ -186,29 +189,6 @@
      * Función para crear y manejar el buscador dinámico.
      */
     function renderSearch() {
-        const searchContainer = $("#search-container");
-        const currentModule = "pokemon";
-        const childrenSearch = searchContainer.children().length;
-
-        if (childrenSearch > 0) return;
-
-        // Crear el HTML del buscador dinámicamente
-        searchContainer.append(`
-            <div class="navbar-item">
-                <div class="field has-addons">
-                    <p class="control">
-                        <input id="search-input" class="input" type="search" placeholder="Find an ${currentModule}">
-                    </p>
-                    <p class="control">
-                        <button id="search-button" class="button is-primary">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <span>Search</span>
-                        </button>
-                    </p>
-                </div>
-            </div>
-        `);
-
         // Asignar el evento al input y al botón
         $("#search-input").on("input", filterCards);
         $("#search-button").on("click", filterCards);
@@ -248,6 +228,7 @@
 
     // Inicialización
     $(document).ready(function () {
+        $('#loading-screen').show();
         fetchAndRenderPokemon(10, 0);
     });
 })();

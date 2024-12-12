@@ -27,20 +27,13 @@
 #navbarMenu.navbar-menu>.navbar-start>.container-items {
     display: flex;
     flex: 1;
-    justify-content: start;
+    justify-content: center;
     gap: 1em;
 }
 
 #nav-router-items>a {
     display: flex;
     align-items: center;
-}
-
-#search-container {
-    position: fixed;
-    top: 18px;
-    z-index: 1031;
-    right: 0;
 }
 
 .navbar-brand {
@@ -133,17 +126,12 @@
         display: block;
     }
 
-    .button.is-primary>p {
+    .button.is-primary>span {
         display: none;
-    }
-
-    #search-container {
-        right: 55px;
     }
 }
 
 @media (max-width: 500px) {
-
     .navbar-brand>img {
         height: 30px;
         width: 50px;

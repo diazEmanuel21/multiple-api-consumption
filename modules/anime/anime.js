@@ -14,9 +14,10 @@
                 renderAnime(response.data);
                 renderSearch()
                 renderPagination(response.pagination);
+                $('#loading-screen').hide();
             },
             error: (error) => {
-                console.error("Error fetching anime:", error);
+                alert(`Error fetching anime:, ${error}`);
             },
         });
     };
@@ -56,33 +57,9 @@
     };
 
     /**
-     * Función para crear y manejar el buscador dinámico.
+     * Asignar eventos al search.
      */
     function renderSearch() {
-        const searchContainer = $("#search-container");
-        const currentModule = "character";
-        const childrenSearch = searchContainer.children().length;
-
-        if (childrenSearch > 0) return;
-
-        // Crear el HTML del buscador dinámicamente
-        searchContainer.append(`
-                    <div class="navbar-item">
-                        <div class="field has-addons">
-                            <p class="control">
-                                <input id="search-input" class="input" type="search" placeholder="Find an ${currentModule}">
-                            </p>
-                            <p class="control">
-                                <button id="search-button" class="button is-primary">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                    <span>Search</span>
-                                </button>
-                            </p>
-                        </div>
-                    </div>
-                `);
-
-        // Asignar el evento al input y al botón
         $("#search-input").on("input", filterCards);
         $("#search-button").on("click", filterCards);
     }
@@ -113,6 +90,7 @@
 
     // Initial Fetch
     $(document).ready(() => {
+        $('#loading-screen').show();
         fetchAndRenderAnime(currentPage);
     });
 })();
