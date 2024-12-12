@@ -6,27 +6,25 @@
     <div id="navbarMenu" class="navbar-menu">
         <div class="navbar-start">
             <div id="nav-router-items" class="container-items">
-                <a class="bd-nav-item bd-theme-home" data-view="home" onclick="changeViewsByDataView({view: 'home'})">
+                <a class="bd-nav-item bd-theme-home" data-view="home" onclick="handleViewAndHideMenu('home')">
                     <span class="icon">
                         <i><img src="/assets/icons/pokemon_home.png" alt="home"></i>
                     </span>
                     <span>Home</span>
                 </a>
-                <a class="bd-nav-item bd-theme-pokemon" data-view="pokemon"
-                    onclick="changeViewsByDataView({view: 'pokemon'})">
+                <a class="bd-nav-item bd-theme-pokemon" data-view="pokemon" onclick="handleViewAndHideMenu('pokemon')">
                     <span class="icon">
                         <i><img src="/assets/icons/pokemon.png" alt="pokemon"></i>
                     </span>
                     <span>Pokemon</span>
                 </a>
-                <a class="bd-nav-item bd-theme-rick" data-view="rick" onclick="changeViewsByDataView({view: 'rick'})">
+                <a class="bd-nav-item bd-theme-rick" data-view="rick" onclick="handleViewAndHideMenu('rick')">
                     <span class="icon">
                         <i><img src="/assets/icons/rick.svg" alt="rick"></i>
                     </span>
                     <span>Rick & Morty</span>
                 </a>
-                <a class="bd-nav-item bd-theme-anime" data-view="anime"
-                    onclick="changeViewsByDataView({view: 'anime'})">
+                <a class="bd-nav-item bd-theme-anime" data-view="anime" onclick="handleViewAndHideMenu('anime')">
                     <span class="icon">
                         <i><img src="/assets/icons/avatar.png" alt="anime"></i>
                     </span>

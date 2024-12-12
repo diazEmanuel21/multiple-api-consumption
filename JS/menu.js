@@ -41,6 +41,11 @@ const hideBurgerMenu = () => {
         .addClass('hide-element');
 };
 
+const handleViewAndHideMenu = (view) => {
+    hideBurgerMenu();
+    changeViewsByDataView({ view });
+}
+
 // Manejar clics en el overlay para cerrar el menú
 menuOverlay.on('click', hideBurgerMenu);
 
